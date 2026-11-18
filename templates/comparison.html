@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Performance Comparison</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            color: #253047;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            font-size: 23px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            background: #2563eb;
+            padding: 11px 20px;
+            border-radius: 7px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .heading p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .models {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .model-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px #0000000d;
+            border: 1px solid #e2e8f0;
+        }
+
+        .model-card h3 {
+            margin-bottom: 15px;
+            font-size: 19px;
+        }
+
+        .model-card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .best {
+            border: 2px solid #16a34a;
+        }
+
+        .best-label {
+            display: inline-block;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .section {
+            background: white;
+            padding: 28px;
+            margin-bottom: 28px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px #0000000d;
+            overflow-x: auto;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 550px;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: #172554;
+            color: white;
+        }
+
+        .winner {
+            color: #15803d;
+            font-weight: bold;
+            background: #f0fdf4;
+        }
+
+        .chart {
+            margin-bottom: 30px;
+        }
+
+        .chart h3 {
+            margin-bottom: 12px;
+        }
+
+        .chart img {
+            width: 100%;
+            max-width: 750px;
+            display: block;
+            margin: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+
+        .explanation {
+            background: #eff6ff;
+            border-left: 5px solid #2563eb;
+            padding: 22px;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .explanation strong {
+            color: #166534;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+        }
+
+        @media(max-width: 750px) {
+            .models {
+                grid-template-columns: 1fr;
+            }
+
+            .heading h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>House Price Prediction</h2>
+    <a href="/">Back to Home</a>
+</header>
+
+<div class="container">
+
+    <div class="heading">
+        <h1>Machine Learning Model Comparison</h1>
+        <p>
+            Performance evaluation of three machine learning
+            algorithms used for Indian house price prediction.
+        </p>
+    </div>
+
+    <div class="models">
+
+        <div class="model-card">
+            <h3>Linear Regression</h3>
+            <p>
+                A statistical learning algorithm that identifies
+                linear relationships between property features
+                and house prices.
+            </p>
+        </div>
+
+        <div class="model-card">
+            <h3>Decision Tree</h3>
+            <p>
+                Uses decision rules and branches to predict
+                property prices based on different property
+                characteristics.
+            </p>
+        </div>
+
+        <div class="model-card best">
+            <span class="best-label">BEST PERFORMING MODEL</span>
+            <h3>Random Forest</h3>
+            <p>
+                Combines multiple decision trees and averages
+                their predictions to improve prediction accuracy
+                and reduce errors.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="section">
+        <h2>Performance Comparison Table</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>MAE ↓</th>
+                    <th>RMSE ↓</th>
+                    <th>R² Score ↑</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Linear Regression</td>
+                    <td>47.94</td>
+                    <td>86.03</td>
+                    <td>0.6657</td>
+                </tr>
+
+                <tr>
+                    <td>Decision Tree</td>
+                    <td>48.36</td>
+                    <td>101.79</td>
+                    <td>0.5320</td>
+                </tr>
+
+                <tr class="winner">
+                    <td>Random Forest ★</td>
+                    <td>34.04</td>
+                    <td>70.41</td>
+                    <td>0.7761</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Graphical Performance Analysis</h2>
+
+        <div class="chart">
+            <h3>1. Mean Absolute Error (MAE)</h3>
+            <p>Lower MAE indicates better prediction performance.</p>
+            <img src="{{ url_for('static', filename='comparison_graphs/MAE.png') }}"
+                 alt="MAE comparison">
+        </div>
+
+        <div class="chart">
+            <h3>2. Root Mean Squared Error (RMSE)</h3>
+            <p>Lower RMSE indicates fewer large prediction errors.</p>
+            <img src="{{ url_for('static', filename='comparison_graphs/RMSE.png') }}"
+                 alt="RMSE comparison">
+        </div>
+
+        <div class="chart">
+            <h3>3. R² Score</h3>
+            <p>Higher R² indicates better explanation of price variation.</p>
+            <img src="{{ url_for('static', filename='comparison_graphs/R2_Score.png') }}"
+                 alt="R2 comparison">
+        </div>
+
+    </div>
+
+    <div class="section">
+        <h2>Final Model Selection</h2>
+
+        <div class="explanation">
+            The three machine learning algorithms were evaluated
+            using the same performance metrics.
+
+            <br><br>
+
+            <strong>Random Forest is selected as the final model</strong>
+            because it achieved:
+
+            <ul style="margin: 12px 0 12px 25px;">
+                <li>Lowest MAE: 34.04</li>
+                <li>Lowest RMSE: 70.41</li>
+                <li>Highest R² Score: 0.7761 (77.61%)</li>
+            </ul>
+
+            Therefore, Random Forest demonstrated the best
+            performance among the three evaluated algorithms
+            on the test dataset and is used for final house
+            price predictions.
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    House Price Prediction | Machine Learning Project
+</footer>
+
+</body>
+</html>
+
